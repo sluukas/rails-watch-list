@@ -1,0 +1,18 @@
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url("movie.jpg") %>
+);">
+  <div class="container">
+    <h1>Save any kind of movies</h1>
+    <p></p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div>
+
+
+<h1>My lists</h1>
+<ul>
+  <% @lists.each do |list| %>
+    <li><%= link_to "#{list.name.capitalize}", list_path(list) %></li>
+  <% end %>
+</ul>
+<%=  link_to "Create a new list", new_list_path%>

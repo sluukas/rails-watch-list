@@ -1,0 +1,29 @@
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url("movie.jpg") %>
+);">
+  <div class="container">
+    <h1>Save any kind of movies</h1>
+    <p></p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div>
+
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  Breakfast
+</div>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  Breakfast
+</div>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  Breakfast
+</div>
+
+
+<h1><%= @list.name.capitalize %></h1>
+<% @list.movies.each do | movie | %>
+<%= movie.title %>
+<% bookmark = movie.bookmarks.find_by(list: @list) %>
+<%= link_to "delete movie from the list", bookmark_path(bookmark),data: {turbo_method: :delete} %>
+<% end %>
+
+<%=  link_to "Add a new movie", new_list_bookmark_path(@list)%>
